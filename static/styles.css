@@ -1,0 +1,20 @@
+.word {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #55E291;
+    height: 1.4em;
+    padding: 0 14px 0 7px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+}
+  
+.word:before {
+    content: '';
+    background-color: #4A4A4A;
+    width: 1px;
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    right: 7px;
+    animation: blinkNaim 500ms linear infinite;
+}
