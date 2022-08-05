@@ -1,42 +1,9 @@
-{% extends "base.html" %} 
+{% extends "base.html" %} {% load static %} {% block content %}
 
-{% block content %}
-<div class="container">
-    <div class="row justify-content-center align-items-center min-vh-100">
-        <p>Este desarrollo fue hecho por <span class="word" id="word"></span></p>
-    </div>
+<div class="container mt-5">
+  <h4 class="word mb-4" id="word"></h4>
+  <table id="datatable"></table>
 </div>
-
-<script>
-    var words = ['Gauto', 'Marianela'],
-    wordWrapper = document.getElementById('word'),
-    wordWrapperContent = wordWrapper.innerHTML,
-    addingWord = false,
-    counter = 1;
-
-    setInterval(function(){
-
-    if(wordWrapperContent.length > 0 && !addingWord ) {
-        wordWrapper.innerHTML = wordWrapperContent.slice(0, -1);
-        wordWrapperContent = wordWrapper.innerHTML;
-    } else {
-        addingWord = true;
-    }
-
-    if( addingWord ){
-        if( wordWrapperContent.length < words[counter].length  ) {
-            wordWrapper.innerHTML = words[counter].slice(0, wordWrapperContent.length + 1);
-            wordWrapperContent = wordWrapper.innerHTML;
-        } else {
-        if( counter < words.length) {
-            counter ++
-        }
-        addingWord = false;
-        }
-    }
-    if( counter == words.length) {
-        counter = 0;
-    }
-    }, 150);
-</script>
+<script src="{% static 'js/datatable.js' %}"></script>
+<script src="{% static 'js/animation.js' %}"></script>
 {% endblock content %}
