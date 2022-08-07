@@ -6,7 +6,7 @@ from .models import *
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'is_staff']
+        fields = ['username',]
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -19,13 +19,6 @@ class OrderDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderDetail
         fields = ('id', 'cuantity', 'product')
-
-
-class OrderDetailWithIdSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = OrderDetail
-        fields = ('id', 'cuantity', 'product')
-        extra_kwargs = {'id': {'read_only': False}}
 
 
 class OrderSerializer(serializers.ModelSerializer):

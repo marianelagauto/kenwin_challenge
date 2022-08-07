@@ -1,6 +1,7 @@
 """ views """
 # from django.shortcuts import render
-from rest_framework import viewsets
+from rest_framework import viewsets, status
+from rest_framework.response import Response
 from django.contrib.auth.models import User
 from .serializers import *
 
@@ -8,6 +9,7 @@ from .serializers import *
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    http_method_names = ['get',]
 
 
 class ProductViewSet(viewsets.ModelViewSet):
@@ -17,13 +19,7 @@ class ProductViewSet(viewsets.ModelViewSet):
 
 class OrderViewSet(viewsets.ModelViewSet):
     queryset = OrderSerializer.Meta.model.objects.all()
-
-    def destroy(self, request, pk=None, *args, **kwargs):
-        instance = self.get_object()
-        for detail in instance.details.all():
-            detail.product.restore_stock(detail.cuantity)
-            detail.product.save()
-        return super(OrderViewSet, self).destroy(request, pk, *args, **kwargs)
+    http_method_names = ['get', 'post',]
 
     def get_serializer_class(self):
         if self.action == 'create':
