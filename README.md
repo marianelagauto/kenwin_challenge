@@ -9,9 +9,9 @@ docker cp dump.sql kenwin_challenge-db-1:/tmp
 docker exec -it kenwin_challenge-db-1 psql --username postgres --dbname postgres -f tmp/dump.sql
 ```
 
-URL login: 127.0.0.1:8000/login
-usuario: admin
-contraseña: admin
+##### URL login: 127.0.0.1:8000/login
+###### usuario: admin
+###### contraseña: admin
 
 ## API
 ### Endpoints producto
