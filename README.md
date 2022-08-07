@@ -3,8 +3,7 @@
 ## Levantamos docker y corremos migraciones
 ```docker-compose run web python manage.py migrate```
 
-## URL login
-[127.0.0.1:8000/login](127.0.0.1:8000/login)
+## URL login: 127.0.0.1:8000/login
 
 ## Cargar dump de la base con usuario para loguearse
 
@@ -46,6 +45,7 @@ response:
 ### Endpoints Orden
 
 ##### GET 127.0.0.1:8000/api/orders
+
 ##### POST 127.0.0.1:8000/api/orders
 ```
 body:
@@ -66,6 +66,5 @@ body:
     ]
 }
 ```
-
 ## Correr tests
 ```python manage.py test```
