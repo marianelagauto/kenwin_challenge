@@ -4,7 +4,7 @@
 ```docker-compose run web python manage.py migrate```
 
 ## URL login
-[ 127.0.0.1:8000/login ]
+( 127.0.0.1:8000/login )
 
 ## Cargar dump de la base con usuario para loguearse
 
