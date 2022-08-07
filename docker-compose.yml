@@ -17,7 +17,7 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     container_name: web
     volumes:
-      - .:/kenwin
+      - .:/kenwin_challenge
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
