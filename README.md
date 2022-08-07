@@ -1,6 +1,7 @@
 # kenwin_challenge
 
 ##### Levantar proyecto con docker y correr migraciones
+```docker-compose run db```
 ```docker-compose run web python manage.py migrate```
 
 ##### Levantar dump de la base con usuario y productos de prueba
