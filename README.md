@@ -1,12 +1,17 @@
 # kenwin_challenge
 
-### Levantar proyecto con docker y correr migraciones
+##### Levantar proyecto con docker y correr migraciones
 ```docker-compose run web python manage.py migrate```
 
+##### Levantar dump de la base con usuario y productos de prueba
+```
+docker cp dump.sql kenwin_challenge-db-1:/tmp
+docker exec -it kenwin_challenge-db-1 psql --username postgres --dbname postgres -f tmp/dump.sql
+```
+
 URL login: 127.0.0.1:8000/login
-
-### Cargar dump de la base con usuario para loguearse
-
+usuario: admin
+contraseña: admin
 
 ## API
 ### Endpoints producto
@@ -66,5 +71,6 @@ body:
     ]
 }
 ```
+
 ## Correr tests
-```python manage.py test```
+```docker exec kenwin_challenge-web-1 python manage.py test```
