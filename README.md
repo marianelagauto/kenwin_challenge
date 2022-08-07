@@ -4,23 +4,26 @@
 ```docker-compose run web python manage.py migrate```
 
 ## URL login
-127.0.0.1:8000/login
+[ 127.0.0.1:8000/login ]
 
 ## Cargar dump de la base con usuario para loguearse
 
 
 ## API
-Crear productos
-POST 127.0.0.1:8000/api/products
+### Endpoints producto
+
+##### POST 127.0.0.1:8000/api/products
+```
+body:
 {
     "id": 1,
     "description": "producto 1",
     "price": 2345.0,
     "stock": 1
 }
-
-Obtener productos
-GET 127.0.0.1:8000/api/products
+```
+##### GET 127.0.0.1:8000/api/products
+```
 response:
 [
     {
@@ -36,9 +39,15 @@ response:
         "stock": 1
     }
 ]
+```
+##### PUT 127.0.0.1:8000/api/products/{id}
+##### DELETE 127.0.0.1:8000/api/products/{id}
 
-Crear orden con el detalle de cada producto
-POST 127.0.0.1:8000/api/orders
+### Endpoints Orden
+
+##### GET 127.0.0.1:8000/api/orders
+##### POST 127.0.0.1:8000/api/orders
+```
 body:
 
 {
@@ -56,6 +65,7 @@ body:
         }
     ]
 }
+```
 
 ## Correr tests
 ```python manage.py test```
